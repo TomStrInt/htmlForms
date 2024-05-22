@@ -9,6 +9,8 @@ const router = new Router();
 const render = require('koa-ejs');
 const path = require('path');
 
+
+
 render(app, {
     root: path.join(__dirname, 'views'),
     layout: 'form',
@@ -19,13 +21,14 @@ render(app, {
 
 
 router
-    .get('/', async ctx => {
+    .get('/login', async ctx => {
         await ctx.render('form');
+    })
+   .post('/login', async ctx => {
+        await  ctx.render('form');
+   // ctx.body = 'Zalogowany';
     });
-   /* .post('/login', (ctx, next)=> {
-    ctx.body = 'Zalogowany';
-    });
-*/
+
 app
   .use(router.routes())
   .use(router.allowedMethods());
