@@ -25,8 +25,8 @@ router
         await ctx.render('form');
     })
    .post('/login', async ctx => {
-        await  ctx.render('form');
-   // ctx.body = 'Zalogowany';
+       // await  ctx.render('form');
+    ctx.body = 'Zalogowany';
     });
 
 app
