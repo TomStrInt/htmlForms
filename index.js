@@ -25,20 +25,27 @@ render(app, {
     .get('/login', async ctx => {
         await ctx.render('form');
     })
-   /*.post('/login', async ctx => {
-       // await  ctx.render('form');
-    ctx.body = 'Zalogowany';
-    });
-*/
-    router.post('/login', koaBody(), (ctx) => {
-      if(ctx.request.body === {username: 'admin', password: 'adminadmin'}){
-      console.log(ctx.request.body);
-      // => POST body
-      ctx.body = 'Zalogowany!';}
-      else ctx.body = 'NIeprawidlowa nazwa uzytkownika lub haslo';
-    });
-    
+ 
 
+    router.post('/login', koaBody(), (ctx) => {
+  
+        const { password } = ctx.request.body;
+        const { username } = ctx.request.body;
+        
+      console.log(ctx.request.body);
+      console.log(password);
+      console.log(username);
+     // if(password.length < 8){
+
+    //  }
+      if(username === 'admin' && password === 'adminadmin'){
+      
+      ctx.body = 'Zalogowany!';}
+      else { ctx.body = 'NIeprawidlowa nazwa uzytkownika lub haslo';
+      };
+    });
+
+ 
 
 app
   .use(router.routes())
