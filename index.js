@@ -31,11 +31,11 @@ render(app, {
     });
 */
     router.post('/login', koaBody(), (ctx) => {
-      if(ctx.request.body=== {username: 'admin', password: 'adminadmin'}){
+      if(ctx.request.body === {username: 'admin', password: 'adminadmin'}){
       console.log(ctx.request.body);
       // => POST body
       ctx.body = 'Zalogowany!';}
-      else ctx.body = 'bledny login lub haslo';
+      else ctx.body = 'NIeprawidlowa nazwa uzytkownika lub haslo';
     });
     
 
