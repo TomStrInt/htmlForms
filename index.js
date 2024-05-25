@@ -31,18 +31,16 @@ render(app, {
   
         const { password } = ctx.request.body;
         const { username } = ctx.request.body;
-        
-      console.log(ctx.request.body);
-      console.log(password);
-      console.log(username);
-     // if(password.length < 8){
-
-    //  }
+     
+    if(password.length < 8){
+      alert('haslo jest zbyt krotkie! (min 8 znakow)');
+    }else{
       if(username === 'admin' && password === 'adminadmin'){
       
       ctx.body = 'Zalogowany!';}
-      else { ctx.body = 'NIeprawidlowa nazwa uzytkownika lub haslo';
+      else { ctx.body = 'Nieprawidlowa nazwa uzytkownika lub haslo';
       };
+    };
     });
 
  
